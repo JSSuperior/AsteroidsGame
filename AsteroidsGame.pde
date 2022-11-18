@@ -39,6 +39,9 @@ public void keyPressed(){
     right = true;
   if(key == 'j' || key == 'J')
     sped = true;
+  //Make sure to add random self destruction later on
+  if(key == ' ')
+    gitus.hyperspace();
 }
 
 public void keyReleased(){

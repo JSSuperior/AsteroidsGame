@@ -9,10 +9,11 @@ class Asteroid extends Floater{
     myXspeed = (Math.random()*2)-1;
     myYspeed = (Math.random()*2)-1;
   }
-  
   void move(){
     turn(rotSpeed);
     super.move();
   }
   
+ double getX(){ return myCenterX;}
+ double getY(){ return myCenterY;}
 }

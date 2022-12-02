@@ -25,9 +25,12 @@ public void draw()
   rect(0,0,width,height);
   for(int k = 0; k < Exarch.length; k++)
     Exarch[k].show();
-  for(int k = 0; k < 10; k++){
+  for(int k = 0; k < Elidibus.size(); k++){
     Elidibus.get(k).show();
     Elidibus.get(k).move();
+    double d = dist((float)Runar.getX(),(float)Runar.getY(),(float)Elidibus.get(k).getX(),(float)Elidibus.get(k).getY());
+    if(d<20)
+      Elidibus.remove(k);
   }
   
   if(left == true)

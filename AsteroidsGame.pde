@@ -3,51 +3,61 @@ boolean left = false;
 boolean right = false;
 boolean sped = false;
 
-
-Spaceship gitus;
-Star[] thousandPeaks = new Star[200];
+Spaceship Runar;
+Star[] Exarch = new Star[200];
+ArrayList <Asteroid> Elidibus = new ArrayList <Asteroid>();
 
 public void setup() 
 {
   size(500,500);
-  for(int k = 0; k < thousandPeaks.length; k++)
-    thousandPeaks[k] = new Star();
-  gitus = new Spaceship();
+  for(int k = 0; k < Exarch.length; k++)
+    Exarch[k] = new Star();
+  for(int k = 0; k < 10; k++)
+    Elidibus.add(new Asteroid());
+  Runar = new Spaceship();
+  
 }
 public void draw() 
 {
-  background(0);
-  for(int k = 0; k < thousandPeaks.length; k++)
-    thousandPeaks[k].show();
+  //background(0);
+  noStroke();
+  fill(0,75);
+  rect(0,0,width,height);
+  for(int k = 0; k < Exarch.length; k++)
+    Exarch[k].show();
+  for(int k = 0; k < 10; k++){
+    Elidibus.get(k).show();
+    Elidibus.get(k).move();
+  }
   
   if(left == true)
-    gitus.turn(-3);
+    Runar.turn(-3);
   if(right == true)
-    gitus.turn(3);
+    Runar.turn(3);
   if(sped == true)
-    gitus.accelerate(0.05);
+    Runar.accelerate(0.05);
   
   
-  gitus.move();
-  gitus.show();
+  Runar.move();
+  Runar.show();
+  
 }
 
 public void keyPressed(){
   if(key == 's' || key == 'S')
     left = true;
-  if(key == 'f' || key == 'F')
+  if(key == 'd' || key == 'D')
     right = true;
   if(key == 'j' || key == 'J')
     sped = true;
-  //Make sure to add random self destruction later on
   if(key == ' ')
-    gitus.hyperspace();
+    Runar.hyperspace();
 }
 
 public void keyReleased(){
   if(key == 's' || key == 'S')
     left = false;
-  if(key == 'f' || key == 'F')
+  if(key == 'd' || key == 'D')
     right = false;
   if(key == 'j' || key == 'J')
     sped = false;
